@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def index():
 
 @app.route('/image_mars')
 def return_sample_page():
-    return """<!doctype html>
+    return f"""<!doctype html>
                 <html lang="en">
                   <head>
                     <meta charset="utf-8">
