@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return "Привет, Яндекс!"
 
-@app.route('/image_mars')
+@app.route('/promotion_image')
 def return_sample_page():
     return f"""<!doctype html>
                 <html lang="en">
