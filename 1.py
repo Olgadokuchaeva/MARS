@@ -147,5 +147,34 @@ def form_sample():
         print(request.form['sex'])
         return "Форма отправлена"
 
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def results(nickname, level, rating):
+    return f"""<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta charset="utf-8">
+                            <title>Результаты</title>
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                            <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                          </head>
+                          <body>
+                            <h1>Результаты отбора</h1>
+                            <div class="alert alert-secondary" role="alert">
+                                Претендента на участие в миссии {nickname}:
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                Поздравляем! Ваш рейтинг после {level} этапа отбора
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                составляет {rating}!
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                Желаем удачи!
+                            </div>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                          </body>
+                        </html>"""
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
